@@ -45,3 +45,32 @@ const bookStore = {
 
 // Write your code here!
 
+// creates variable bookStoreTitle that finds the class id "header"
+const bookStoreTitle = document.querySelector("#header")
+
+// uploads bookStore.name object into the text of bookStoreTitle header
+bookStoreTitle.textContent = bookStore.name
+
+// this for loop iterates through the bookStore.books array length inside the bookStore object
+for(let i = 0; i < bookStore.books.length; i++) {
+
+    // creates variables for each new element
+    const bookContainer = document.createElement("li")
+    const bookTitle = document.createElement("h3")
+    const bookAuthor = document.createElement("p")
+    const bookImg = document.createElement("img")
+    const bookList = document.querySelector("#book-list")
+
+    // adds content from bookStore object into the appropriate element
+    bookTitle.textContent = bookStore.books[i].title
+    bookAuthor.textContent = bookStore.books[i].author
+    bookImg.src = bookStore.books[i].imageUrl
+
+    // appends each new element created into bookContainer
+    bookContainer.append(bookTitle)
+    bookContainer.append(bookAuthor)
+    bookContainer.append(bookImg)
+
+    // appends bookContainer to DOM
+    bookList.append(bookContainer)
+}
